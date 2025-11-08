@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.env
+.venv/
+pip-wheel-metadata/
+*.log
+
+# Poetry
+poetry.lock
+
+# VSCode
+.vscode/
+
+# macOS
+.DS_Store

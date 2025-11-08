@@ -1,4 +1,5 @@
 import requests
+import logging
 from .config import ConfigManager
 
 class ApiClient:
@@ -12,13 +13,17 @@ class ApiClient:
     def get_all_products(self):
 
         response = requests.get(f'{self.base_url}/products/')
-        products = response.json()
-        return(products)
+        if response.status_code == 200:
+            logging.info('The server responded succefully!')
+            products = response.json()
+            return(products)
     
     def get_all_users(self):
-        response = requests.get(f'{self.base_url}/users/')
-        users = response.json()
-        return(users)
+        if response.status_code == 200:
+            logging.info('The server responded succefully!')
+            response = requests.get(f'{self.base_url}/users/')
+            users = response.json()
+            return(users)
     
 
 def main():
